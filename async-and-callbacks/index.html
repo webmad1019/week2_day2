@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Async & callbacks</title>
+</head>
+
+<body>
+
+    <!-- Botones auxiliares de Bootstrap (sólo disponibles en boostrap.min.css -->
+    <button class="btn btn-dark btn-lg" style="margin: 10px">Detener termporizador</button>
+    <button class="btn btn-dark btn-lg" style="margin: 10px">Detener intervalo</button>
+    <h1 id="countdown" style="margin: 10px">10</h1>
+
+
+
+    <script>
+
+
+
+        /* Intervalo */
+        let counter = 1;
+        const callbackFunction = () => {
+            document.getElementsByTagName('h1')[0].textContent = counter;
+            counter += 1;
+        }
+
+        const interval = setInterval(callbackFunction, 10);
+
+        document.getElementsByClassName('btn')[1].onclick = () => {
+            clearInterval(interval)
+            console.log('Intervalo abortado')
+        }
+
+
+
+
+
+        /* Cuenta atrás */
+        const myTimeout = setTimeout(() => {
+            alert("Ya han pasado 5 segundos! Haber apretado el botón antes, merluzo")
+        }, 5000)
+
+        document.getElementsByClassName('btn')[0].onclick = () => {
+            clearTimeout(myTimeout)
+            comnsole.log("Timeout abortado")
+        }
+
+
+
+
+
+
+            /*
+                // Ejemplo que demuestra las capacidades asíncronas y no bloqueantes de JS, que en su naturaleza es sincrónico y bloqueante
+                console.log("Proceso 1")
+    
+                const showInfo = () => alert("Soy la información")
+                setTimeout(showInfo, 3000)
+    
+                console.log("Proceso 2")        // No espera a la consecución del proceso asíncrono
+            */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
